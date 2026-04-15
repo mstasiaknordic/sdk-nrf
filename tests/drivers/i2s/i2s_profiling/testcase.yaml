@@ -1,0 +1,44 @@
+common:
+  tags:
+    - drivers
+    - ci_tests_zephyr_drivers_i2s
+
+tests:
+  drivers.i2s.i2s_profiling.nrf:
+    platform_allow:
+      - nrf54lm20dk/nrf54lm20a/cpuapp
+      - nrf54lm20dk/nrf54lm20b/cpuapp
+    integration_platforms:
+      - nrf54lm20dk/nrf54lm20b/cpuapp
+    extra_args: EXTRA_DTC_OVERLAY_FILE="nrf_tdm.overlay"
+    harness: ztest
+    harness_config:
+      fixture: gpio_loopback
+  drivers.i2s.i2s_profiling.nrf.nrf54h:
+    platform_allow:
+      - nrf54h20dk/nrf54h20/cpuapp
+    integration_platforms:
+      - nrf54h20dk/nrf54h20/cpuapp
+    extra_args: EXTRA_DTC_OVERLAY_FILE="nrf_tdm.overlay"
+    harness: ztest
+    harness_config:
+      fixture: i2s_loopback
+  drivers.i2s.i2s_profiling.nrfx:
+    platform_allow:
+      - nrf54lm20dk/nrf54lm20a/cpuapp
+      - nrf54lm20dk/nrf54lm20b/cpuapp
+    integration_platforms:
+      - nrf54lm20dk/nrf54lm20b/cpuapp
+    extra_args: EXTRA_DTC_OVERLAY_FILE="nrfx_tdm.overlay"
+    harness: ztest
+    harness_config:
+      fixture: gpio_loopback
+  drivers.i2s.i2s_profiling.nrfx.nrf54h:
+    platform_allow:
+      - nrf54h20dk/nrf54h20/cpuapp
+    integration_platforms:
+      - nrf54h20dk/nrf54h20/cpuapp
+    extra_args: EXTRA_DTC_OVERLAY_FILE="nrfx_tdm.overlay"
+    harness: ztest
+    harness_config:
+      fixture: i2s_loopback
